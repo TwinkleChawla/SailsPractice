@@ -7,6 +7,8 @@
 
 module.exports = {
 
+	schema: true, //this will be doing same work as the IMPORTANT will be doing after commenting out.
+
   attributes: {
 
   	name: {
@@ -24,8 +26,17 @@ module.exports = {
   	},
   	encryptedPassword:{
   		type:'string'
-  	}
+  	},
+/* ---------------IMPORTANT------------------
+  	toJSON: function() {
+  		var obj = this.toObject();
+  		delete obj.password;
+  		delete obj.confirmation;
+  		delete obj.encryptedPassword;
+  		delete obj._csrf;
+  		return obj;
+  	}*/
 
   }
-};
 
+};

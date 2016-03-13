@@ -40,6 +40,10 @@ module.exports.routes = {
     view: '/user/new'
   }
 
+  /*'/user/show' :{
+    view: '/user/show'
+  }*/
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
