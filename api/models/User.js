@@ -9,6 +9,10 @@ module.exports = {
 
 	schema: true, //this will be doing same work as the IMPORTANT will be doing after commenting out.
 
+	connection: 'MysqlServer',
+
+	tableName: 'signupusers',
+
   attributes: {
 
   	name: {
@@ -26,7 +30,7 @@ module.exports = {
   	},
   	encryptedPassword:{
   		type:'string'
-  	},
+  	}
 /* ---------------IMPORTANT------------------
   	toJSON: function() {
   		var obj = this.toObject();

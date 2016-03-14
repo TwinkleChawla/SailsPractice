@@ -45,8 +45,7 @@ module.exports.connections = {
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'sailsusers',
-    table: 'signupusers'
+    database: 'sailsusers'
   },
 
   /***************************************************************************
