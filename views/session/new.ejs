@@ -1,0 +1,8 @@
+<form action="/session/create" method="POST" class="form-signin">
+	<h2 class="form-signin-heading">Log into it!</h2>
+	
+	<input type="text" class="form-control" placeholder="Enter your email" name="email">
+	<input type="password" class="form-control" placeholder="Password" name="password">
+	<input type="submit" class="btn btn-primary btn-block" value="Log-in"/>
+	<input type="hidden" class="_csrf" value="<%= _csrf %>" />
+</form>
