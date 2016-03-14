@@ -10,7 +10,7 @@ module.exports = {
 		res.view();
 	},
 
-	/*'create': function (req,res,next) {
+	'create': function (req,res,next) {
 		User.create ( req.params.all(), function userCreated(err,user){ 
 			if(err) {
 				console.log(err);
@@ -19,18 +19,18 @@ module.exports = {
 			//res.json(user);
 			res.redirect('/user/show/'+user.id);
 		});
-	},*/
-
+	},
+/*
 	'create': function (req,res) {
 		var params = req.params.all();
-		User.create({username: params.username, id: params.id}).exec(function createUser(err,created){
+		User.create({name: params.name, title: params.title, email: params.email, encryptedPassword: params.encryptedPassword}).exec(function createUser(err,created){
 			if(err) {
 				console.log(err);
-				return res.redirect('/user/new');
+				//return res.redirect('/user/new');
 			}
-        	res.redirect('/user/show/'+params.id);
+        	res.redirect('/user/show/'+created.id);
       });
-    },
+    },*/
 	
 	'show' : function (req,res,next){
 		User.findOne(req.param('id'), function foundUser(err,user){
