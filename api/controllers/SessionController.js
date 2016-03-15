@@ -53,6 +53,7 @@ module.exports = {
 					res.redirect('/session/new');
 					return;
 				}
+				//When user is found and password is also matched
 				req.session.authenticated = true;
 				req.session.User = user;
 				res.redirect('/user/show/'+user.id);
