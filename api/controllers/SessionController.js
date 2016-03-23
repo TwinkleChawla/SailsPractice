@@ -5,7 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-/*var bcrypt = require('bcrypt');*/
+var bcrypt = require('bcrypt');
 
 module.exports = {
 
@@ -42,7 +42,7 @@ module.exports = {
 				return;
 			}
 			//Now comparing password from the params
-			compare(req.params('password'), user.encryptedPassword, function(err,valid){
+			bcrypt.compare(req.param('password'), user.encryptedPassword, function(err,valid){
 				if (err) return next(err);
 				//When Password doesn't match
 				if (!valid){
@@ -53,6 +53,8 @@ module.exports = {
 					res.redirect('/session/new');
 					return;
 				}
+
+				 
 				//When user is found and password is also matched
 				req.session.authenticated = true;
 				req.session.User = user;

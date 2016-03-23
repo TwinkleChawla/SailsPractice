@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-$('#signUp-form').validate({
+$('.form-signin').validate({
 	rules: {
 		name : {
 			required:true
@@ -13,7 +13,7 @@ $('#signUp-form').validate({
 			minlength: 6,
 			required:true
 		},
-		confirmation: {
+		encryptedPassword: {
 			minlength: 6,
 			equalTo: "#password"
 		}

@@ -29,7 +29,8 @@ module.exports = {
   		unique:true
   	},
   	encryptedPassword:{
-  		type:'string'
+  		type:'string',
+  		required:true
   	}
 /* ---------------IMPORTANT------------------
   	toJSON: function() {
@@ -41,6 +42,17 @@ module.exports = {
   		return obj;
   	}*/
 
-  }
+  }/*,
+
+  beforeCreate: function (values,next) {
+  	if (!values.password || values.password != values.confirmation) {
+  		return next({err: ["Password doesn't match password confirmation."]});
+  	}
+  	require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword){
+  		if (err) return next(err);
+  		values.encryptedPassword = encryptedPassword;
+  		next();
+  	});
+  }*/
 
 };

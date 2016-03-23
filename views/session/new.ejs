@@ -1,7 +1,13 @@
 <form action="/session/create" method="POST" id="#signUp-form" class="form-signin">
 	<h2 class="form-signin-heading">Log into it!</h2> 
 
-
+	<% if (flash && flash.err) { %>
+		<ul class="alert alert-success">
+			<% Object.keys(flash.err).forEach(function(error) { %>
+				<li> <%- JSON.stringify(flash.err[error]) %> </li>
+			<% }) %>
+		</ul>
+	<% } %>
 	
 	<input type="text" class="form-control" placeholder="Enter your email" name="email">
 	<input type="password" class="form-control" placeholder="Password" name="password">
