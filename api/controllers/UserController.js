@@ -7,18 +7,25 @@
 
 module.exports = {
 	'new':function(req,res){
+		
 		res.view();
+		
 	},
 
 	'create': function (req,res,next) {
 		User.create ( req.params.all(), function userCreated(err,user){ 
 			if(err) {
 				console.log(err);
+				req.session.flash = {
+					err: err
+				}
+
 				return res.redirect('/user/new');
 			}
-			//res.json(user);
+			/*res.json(user);*/
+			req.session.flash = {};
 			res.redirect('/user/show/'+user.id);
-		});
+		});   
 	},
 /*
 	'create': function (req,res) {
@@ -38,7 +45,7 @@ module.exports = {
 			if(!user) return next();
 			res.view({user:user});
 		});
-	} 
+	}
 };
 
 

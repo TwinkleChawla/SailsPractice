@@ -33,5 +33,8 @@
     "url": "git://github.com/twinkle/Sails.git"
   },
   "author": "twinkle",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "grunt-inject-js": "^0.1.8"
+  }
 }
