@@ -42,7 +42,7 @@ module.exports = {
 				return;
 			}
 			//Now comparing password from the params
-			bcrypt.compare(req.param('password'), user.encryptedPassword, function(err,valid){
+			bcrypt.compare(req.param('password'), user.password, function(err,valid){
 				if (err) return next(err);
 				//When Password doesn't match
 				if (!valid){
@@ -54,13 +54,17 @@ module.exports = {
 					return;
 				}
 
-				 
+
 				//When user is found and password is also matched
 				req.session.authenticated = true;
 				req.session.User = user;
 				res.redirect('/user/show/'+user.id);
 			});
 		});
+	},
+	destroy : function(req,res,next) {
+		req.session.destroy();
+		res.redirect('/session/new');
 	}
 	
 };

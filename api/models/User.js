@@ -28,9 +28,10 @@ module.exports = {
   		required:true,
   		unique:true
   	},
-  	encryptedPassword:{
+  	password:{
   		type:'string',
-  		required:true
+  		required:true,
+  		columnName: 'encryptedPassword'
   	}
 /* ---------------IMPORTANT------------------
   	toJSON: function() {
