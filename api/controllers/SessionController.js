@@ -18,7 +18,7 @@ module.exports = {
 		res.view('session/new');
 	},
 
-	'create' : function(req,res,next){
+	'create' : function(req,res,next){ 	       
 		//Now we'll check that the user entered some email and password 
 		if(!req.param('email') || !req.param('password')) {
 			var usernamePasswordRequiredError = [{name: 'usernamePasswordRequired', message: 'You must enter both Username and Password!'}]

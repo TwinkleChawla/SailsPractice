@@ -48,16 +48,16 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-        <% if(session.authenticated) { %>
-          <li class="active"><a href="/user/show/<%= session.user.id %>"><%= session.user.name%></a></li>
+        <% if(session) { %>
+          <li class="active"><a href="/user/show/<%= User.id %>"><%= User.name %></a></li>
         <% } %>
         </ul>
         <div class="navbar-right">
-          <% if(session.authenticated) { %>
+          <% if(session) { %>
           <button class="btn btn-default navbar-btn navbar-right" href="/session/destroy">SignOut</button>>
           <% } %>
         </div>
-        <% if(!session.authenticated) { %>
+        <% if(!session) { %>
           <form class="navbar-form navbar-right" action="/session/new">
             <div class="form-group">
               <input type="text" placeholder="Email" name="email" class="form-control"/>
