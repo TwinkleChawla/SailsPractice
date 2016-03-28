@@ -54,8 +54,8 @@
         </ul>
         <div class="navbar-right">
           <% if(session.authenticated) { %>
-          <a class="btn btn-default navbar-btn navbar-right" href="/session/destroy">SignOut</a>
-        <% } %>
+          <button class="btn btn-default navbar-btn navbar-right" href="/session/destroy">SignOut</button>>
+          <% } %>
         </div>
         <% if(!session.authenticated) { %>
           <form class="navbar-form navbar-right" action="/session/new">

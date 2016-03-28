@@ -22,20 +22,21 @@ module.exports = {
 
 				return res.redirect('/user/new');
 			}
-			/*res.json(user);*/
+			//res.json(user);
 			req.session.flash = {};
 			res.redirect('/user/show/'+user.id);
 		});   
 	},
-/*
-	'create': function (req,res) {
+
+	/*'create': function (req,res,next) {
 		var params = req.params.all();
-		User.create({name: params.name, title: params.title, email: params.email, encryptedPassword: params.encryptedPassword}).exec(function createUser(err,created){
+		User.create({name: req.params.name, title: req.params.title, email: req.params.email, encryptedPassword: req.params.encryptedPassword}).exec(function userCreated(err,user){
 			if(err) {
 				console.log(err);
-				//return res.redirect('/user/new');
+				return res.redirect('/user/new');
 			}
-        	res.redirect('/user/show/'+created.id);
+			req.session.flash = {};
+        	res.redirect('/user/show/'+user.id);
       });
     },*/
 	
@@ -47,5 +48,3 @@ module.exports = {
 		});
 	}
 };
-
-

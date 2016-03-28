@@ -32,8 +32,8 @@ module.exports = {
   		type:'string',
   		required:true,
   		columnName: 'encryptedPassword'
-  	}
-/* ---------------IMPORTANT------------------
+  	},
+ //---------------IMPORTANT------------------
   	toJSON: function() {
   		var obj = this.toObject();
   		delete obj.password;
@@ -41,9 +41,9 @@ module.exports = {
   		delete obj.encryptedPassword;
   		delete obj._csrf;
   		return obj;
-  	}*/
+  	}
 
-  }/*,
+  },
 
   beforeCreate: function (values,next) {
   	if (!values.password || values.password != values.confirmation) {
@@ -54,6 +54,6 @@ module.exports = {
   		values.encryptedPassword = encryptedPassword;
   		next();
   	});
-  }*/
+  }
 
 };
