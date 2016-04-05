@@ -13,6 +13,29 @@ module.exports = {
 	},
 
 	'create': function (req,res,next) {
+		/*var userData={
+      		name:req.body.name,
+      		title:req.body.title,
+      		email:req.body.email,
+      		password:sails.bcrypt.hashSync(req.body.password,sails.salt),
+     	};    	
+	     	
+	    User.create(userData).exec(function(err,data){
+	          		if(err){
+	            		console.log(err);
+	            		res.negotiate(err);
+	          		}
+	          		else{
+	            		res.cookie('user',data,{
+	              			signed:true,  
+	              			httpOnly:true,
+	              			maxAge:1000*60*60*24*5
+	            		});
+	            		res.redirect('/user/new');
+	          		}
+	        	})*/
+	      	
+    	
 		User.create ( req.params.all(), function userCreated(err,user){ 
 			if(err) {
 				console.log(err);
