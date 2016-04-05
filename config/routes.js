@@ -37,7 +37,7 @@ module.exports.routes = {
   },
 
   '/user/new':{
-    view: '/user/new'
+    view: 'user/new'
   }
 
   /*'/user/show' :{
