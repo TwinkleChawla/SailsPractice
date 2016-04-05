@@ -7,19 +7,19 @@
 
 module.exports = {
 	'new':function(req,res){
-		
+
 		res.view();
-		
+
 	},
 
-	'create': function (req,res,next) {
+	create: function (req,res,next) {
 		/*var userData={
       		name:req.body.name,
       		title:req.body.title,
       		email:req.body.email,
       		password:sails.bcrypt.hashSync(req.body.password,sails.salt),
-     	};    	
-	     	
+     	};
+
 	    User.create(userData).exec(function(err,data){
 	          		if(err){
 	            		console.log(err);
@@ -27,28 +27,27 @@ module.exports = {
 	          		}
 	          		else{
 	            		res.cookie('user',data,{
-	              			signed:true,  
+	              			signed:true,
 	              			httpOnly:true,
 	              			maxAge:1000*60*60*24*5
 	            		});
 	            		res.redirect('/user/new');
 	          		}
 	        	})*/
-	      	
-    	
-		User.create ( req.params.all(), function userCreated(err,user){ 
+
+    console.log(req.body);
+		User.create ( req.params.all(), function userCreated(err,user){
 			if(err) {
 				console.log(err);
 				req.session.flash = {
 					err: err
 				}
-
 				return res.redirect('/user/new');
 			}
 			//res.json(user);
 			req.session.flash = {};
 			res.redirect('/user/show/'+user.id);
-		});   
+		});
 	},
 
 	/*'create': function (req,res,next) {
@@ -62,7 +61,7 @@ module.exports = {
         	res.redirect('/user/show/'+user.id);
       });
     },*/
-	
+
 	'show' : function (req,res,next){
 		User.findOne(req.param('id'), function foundUser(err,user){
 			if(err) return next(err);
