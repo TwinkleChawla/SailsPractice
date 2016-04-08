@@ -36,9 +36,9 @@ module.exports.routes = {
     view: 'static/index'
   },
 
-  '/user/new':{
+  /*'/user/new':{
     view: 'user/new'
-  }
+  }*/
 
   /*'/user/show' :{
     view: '/user/show'

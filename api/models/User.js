@@ -9,7 +9,7 @@ module.exports = {
 
 	schema: true, //this will be doing same work as the IMPORTANT will be doing after commenting out.
 
-	connection: 'MysqlServer',
+	/*connection: 'MysqlServer',*/
 
 	tableName: 'signupusers',
 

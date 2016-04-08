@@ -11,7 +11,7 @@ module.exports = {
 		res.view();
 
 	},
-
+ 
 	create: function (req,res,next) {
 		/*var userData={
       		name:req.body.name,
@@ -49,7 +49,7 @@ module.exports = {
 			res.redirect('/user/show/'+user.id);
 		});
 	},
-
+ 
 	/*'create': function (req,res,next) {
 		var params = req.params.all();
 		User.create({name: req.params.name, title: req.params.title, email: req.params.email, encryptedPassword: req.params.encryptedPassword}).exec(function userCreated(err,user){
@@ -63,7 +63,7 @@ module.exports = {
     },*/
 
 	'show' : function (req,res,next){
-		User.findOne(req.param('id'), function foundUser(err,user){
+		User.findOne(req.params.id, function foundUser(err,user){
 			if(err) return next(err);
 			if(!user) return next();
 			res.view({user:user});
