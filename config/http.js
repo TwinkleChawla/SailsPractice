@@ -21,7 +21,10 @@ module.exports.http = {
   *                                                                           *
   ****************************************************************************/
 
-  // middleware: {
+   middleware: {
+
+    passportInit    : require('passport').initialize(),
+    passportSession : require('passport').session(),
 
   /***************************************************************************
   *                                                                          *
@@ -30,24 +33,27 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
-    // order: [
-    //   'startRequestTimer',
-    //   'cookieParser',
-    //   'session',
-    //   'myRequestLogger',
-    //   'bodyParser',
-    //   'handleBodyParserError',
-    //   'compress',
-    //   'methodOverride',
-    //   'poweredBy',
+     order: [
+       'startRequestTimer',
+       'cookieParser',
+       'session',
+       'passportInit',
+       'passportSession',
+       'myRequestLogger',
+       'bodyParser',
+       'handleBodyParserError',
+       'compress',
+       'methodOverride',
+       'poweredBy',
     //   '$custom',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    //   '404',
-    //   '500'
-    // ],
+       'router',
+       'www',
+       'favicon',
+       '404',
+       '500'
+     ]
 
+   }
   /****************************************************************************
   *                                                                           *
   * Example custom middleware; logs each request to the console.              *
